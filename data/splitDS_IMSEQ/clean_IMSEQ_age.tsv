@@ -1,0 +1,25 @@
+study_patient_id	age	study_place	disease_severity	comorbidities	medical_data	study	id_in_study
+imseq1	43	UZA	moderate	Diabetes  type 2, BMI 29.6	geen opvolgstaal (>=delta 2)	imseq	1
+imseq2	66	UZA	severe	hypertension, hypercholesteraemia, weight unknown	>65, geen opvolgstaal (>=delta 2)	imseq	2
+imseq3	61	UZA	moderate	OSAS, hypercholesterolaemia	tumorectomie borst 26/3/2020,  geen opvolgstaal (>=delta 2)	imseq	3
+imseq4	52	UZA	moderate	none	geen opvolgstaal (>=delta 2)	imseq	4
+imseq5	57	UZA	moderate	none		imseq	5
+imseq7	79	UZA	moderate	asthma, mamma carcinoma, hashimoto	>65	imseq	7
+imseq8	81	UZA	severe	cardio vascular disorder, baso nose	>65	imseq	8
+imseq9	72	UZA	critical	cardio vascular disorder, COPD Gold II	>65	imseq	9
+imseq11	54	UZA	critical	lung metastasis, obesity, diabetes  type 2, immune compromised, terminal ill	gemetastaseerd nasopharyngial carcinoom, waarvoor actieve chemo	imseq	11
+imseq12	36	UZA	moderate	obesity		imseq	12
+imseq13	53	UZA	moderate	none		imseq	13
+imseq14	35	UZA	asymptomatic	metastisised liver carcinoma	melanoom oog met lever metastasen	imseq	14
+imseq15	61	UZA	moderate	none		imseq	15
+imseq16	66	UZA	critical	cardio vascular disorder ,tetraplegic (traumatic), OSAS	overleden	imseq	16
+imseq17	68	UZA	critical	lung ca, Non-Hodgkin lyphoma, immune compromised,	gemetastaseerd longcarcinoom	imseq	17
+imseq18	73	UZA	critical	diabetes 2, hypercholesterolaemia, obesity, OSAS	>65	imseq	18
+imseq19	59	UZA	moderate	hypertension, obesity	late inclusie (delta 2), vermoedelijk weinig cluster evolutie	imseq	19
+imseq20	56	UZA	moderate	hypertension, obesity, stable pulmonary sarcoidosis gr2		imseq	20
+imseq21	60	UZA	critical	none		imseq	21
+imseq22	65	UZA	moderate	none (emfysema on COVID CT, no complaints before)		imseq	22
+imseq23	33	UZA	asymptomatic	brain abcess (complication after sinus drainage), obesity		imseq	23
+imseq24	50	UZA	critical	none		imseq	24
+covidam10	24	Ambulant	asymptomatic			covidam	10
+covidam12	26	Ambulant	asymptomatic			covidam	12

@@ -1,0 +1,2 @@
+TRBV_gene,CDR3_beta,TRBJ_gene,epitope,pathology,score,bpr,sample_id,total_count,unique_TCRs,unique_CDR3s,N_nt_seq,count,freq
+TRBV21-01,CASSSTGDEQYF,TRBJ02-07,LLFNKVTLA,SARS-CoV-2,0.68,8e-05,5_cd4_1_S4,527,27,27,1,12,0.02277039848197344

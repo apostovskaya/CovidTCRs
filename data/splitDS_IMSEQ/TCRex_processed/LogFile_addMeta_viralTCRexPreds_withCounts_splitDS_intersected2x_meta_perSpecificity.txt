@@ -1,0 +1,43 @@
+~ Executed script: src/processPredictions/addMetadata_splitDS.py
+~ Main folder: /Users/apost/Documents/CloudMail/PhD_2020/CovidTCRs/data/splitDS_IMSEQ
+~ Input file: TCRex_processed/viralTCRexPreds_withCounts_splitDS_intersected2x_meta_perSpecificity.tsv
+~ Provided metafile: clean_IMSEQ_age.tsv
+~ Provided prefix for the output file name: MetaForPlotting
+~ The output file will be saved in the same directory as the input file: TCRex_processed
+
+1 ICU patient is renamed to be in critical category.
+
+Hits column is created, where hits = N specific unique TCRs / N unique TCRs
+
+No age information is available for the following patients: 
+['imseq27' 'imseq25' 'imseq28']
+No information about comorbidities is available for the following patients: 
+['covidam12' 'covidam10' 'imseq27' 'imseq25' 'imseq28']
+{'critical': 10     NaN
+12    60.0
+13    50.0
+Name: age, dtype: float64, 'moderate': 3     NaN
+4    53.0
+5    57.0
+6    36.0
+7    61.0
+8    56.0
+9    65.0
+Name: age, dtype: float64, 'asymptomatic': 0    26.0
+1    24.0
+2    33.0
+Name: age, dtype: float64, 'not_critical': 0     26.0
+1     24.0
+2     33.0
+3      NaN
+4     53.0
+5     57.0
+6     36.0
+7     61.0
+8     56.0
+9     65.0
+11     NaN
+Name: age, dtype: float64}
+
+Median age per group: 
+{'high': 55.0, 'medium': 56.5, 'low': 26.0, 'critical': 55.0, 'not_critical': 53.0}

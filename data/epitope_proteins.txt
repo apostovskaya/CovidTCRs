@@ -1,0 +1,48 @@
+epitope	protein	description
+RQLLFVVEV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+YLNTLTLAV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+LPPAYTNSF	SARS200002	surface glycoprotein; structural protein
+FPPTSFGPL	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+TPINLVRDL	SARS200002	surface glycoprotein; structural protein
+ILGLPTQTV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+FLPRVFSAV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+TLIGDCATV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+ALSKGVHFV	SARS200003	ORF3a protein
+FLNGSCGSV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+VLWAHGFEL	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+NLDSKVGGNY	SARS200002	surface glycoprotein; structural protein
+YLDAYNMMI	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+ILHCANFNV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+SEISMDNSPNL	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+KLPDDFTGCV	SARS200002	surface glycoprotein; structural protein
+KLWAQCVQL	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+FTISVTTEIL	SARS200002	surface glycoprotein; structural protein
+LEPLVDLPI	SARS200002	surface glycoprotein; structural protein
+LLFNKVTLA	SARS200002	surface glycoprotein; structural protein
+FADDLNQLTGY	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+EILDITPCSF	SARS200002	surface glycoprotein; structural protein
+NLNESLIDL	SARS200002	surface glycoprotein; structural protein
+IVDTVSALV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+FLNRFTTTL	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+MPASWVMRI	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+NQKLIANQF	SARS200002	surface glycoprotein; structural protein
+KLSYGIATV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+TLDSKTQSL	SARS200002	surface glycoprotein; structural protein
+KEIDRLNEV	SARS200002	surface glycoprotein; structural protein
+IPIQASLPF	SARS200003	ORF3a protein
+SEPVLKGVKL	SARS200002	surface glycoprotein; structural protein
+WICLLQFAY	SARS200005	membrane glycoprotein; structural protein
+YLQPRTFLL	SARS200002	surface glycoprotein; structural protein
+HLVDFQVTI	SARS200006	ORF6 protein
+HTTDPSFLGRY	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+KPLEFGATSAAL	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+KTSVDCTMYI	SARS200002	surface glycoprotein; structural protein
+SSNVANYQK	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+IQYIDIGNY	SARS200008	ORF8 protein
+ITEEVGHTDLMAAY	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+KAYNVTQAF	SARS200009	nucleocapsid phosphoprotein; structural protein
+TLVPQEHYV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+QECVRGTTVL	SARS200007	ORF7a protein
+YFPLQSYGF	SARS200002	surface glycoprotein; structural protein
+SEVGPEHSLAEY	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift
+FVDGVPFVV	SARS200001	orf1ab polyprotein; pp1ab; translated by -1 ribosomal frameshift

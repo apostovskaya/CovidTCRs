@@ -1,0 +1,2 @@
+TRBV_gene,CDR3_beta,TRBJ_gene,epitope,pathology,score,bpr,patient_id,total_count,unique_TCRs,unique_CDR3s,patient,type,study,N_nt_seq,count,freq
+TRBV07-09,CASSLIGISSYNEQFF,TRBJ02-01,TPRVTGGGAM,CMV,0.95,0.0,HD26,98899,584,576,26,HD,IR-Binder,1,1,1.0111325695911993e-05

@@ -1,0 +1,108 @@
+patient ID	COVID19 status	COVID-19 severity	Patient group	day	week	T-cell population	total No. of TCRs	No. of unique TCRs	recognized SC2 epitopes	dataset	source
+11	recovered	mild	non-critical	37	6	cd8	50177	9741	['FLNGSCGSV', 'FVDGVPFVV', 'HTTDPSFLGRY', 'KLSYGIATV', 'VLWAHGFEL', 'YLQPRTFLL']	"""mixed"""	Schultheiss et al.
+12	recovered	mild	non-critical	31	5	cd8	45269	5974	['HTTDPSFLGRY', 'KLSYGIATV', 'MPASWVMRI']	"""mixed"""	Schultheiss et al.
+13	recovered	mild	non-critical	36	6	cd8	232656	21670	['FLNGSCGSV', 'HTTDPSFLGRY', 'ILHCANFNV', 'ITEEVGHTDLMAAY', 'MPASWVMRI', 'TPINLVRDL', 'VLWAHGFEL']	"""mixed"""	Schultheiss et al.
+14	recovered	mild	non-critical	38	6	cd8	224739	20562	['FLNGSCGSV', 'FLPRVFSAV', 'HLVDFQVTI', 'HTTDPSFLGRY', 'ILHCANFNV', 'NLDSKVGGNY', 'TPINLVRDL', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+16	recovered	mild	non-critical	38	6	cd8	251777	7334	['FLNGSCGSV']	"""mixed"""	Schultheiss et al.
+17	recovered	mild	non-critical	39	6	cd8	241379	17214	['FLNGSCGSV', 'HLVDFQVTI', 'ILHCANFNV', 'TLDSKTQSL', 'VLWAHGFEL', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+18	recovered	mild	non-critical	39	6	cd8	205546	9657	['FLNGSCGSV', 'FVDGVPFVV', 'HTTDPSFLGRY', 'ILHCANFNV', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+26	recovered	mild	non-critical	45	7	cd8	243824	18819	['FLPRVFSAV', 'HLVDFQVTI', 'HTTDPSFLGRY', 'ILHCANFNV', 'KPLEFGATSAAL', 'MPASWVMRI', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+27	recovered	mild	non-critical	45	7	cd8	186983	15591	['ALSKGVHFV', 'FLNGSCGSV', 'FVDGVPFVV', 'HLVDFQVTI', 'ILHCANFNV', 'MPASWVMRI', 'NLDSKVGGNY', 'TPINLVRDL', 'YLQPRTFLL']	"""mixed"""	Schultheiss et al.
+28	recovered	mild	non-critical	52	8	cd8	207483	34579	['FLNGSCGSV', 'HLVDFQVTI', 'ILHCANFNV', 'MPASWVMRI', 'TPINLVRDL', 'YLDAYNMMI']	"""mixed"""	Schultheiss et al.
+29	recovered	mild	non-critical	51	8	cd8	180039	28651	['FLNGSCGSV', 'FLPRVFSAV', 'FPPTSFGPL', 'FVDGVPFVV', 'HLVDFQVTI', 'ILHCANFNV', 'TPINLVRDL', 'VLWAHGFEL', 'YLQPRTFLL']	"""mixed"""	Schultheiss et al.
+32	recovered	mild	non-critical	34	5	cd8	123000	19882	['FLNGSCGSV', 'HLVDFQVTI', 'ILHCANFNV', 'MPASWVMRI', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+33	recovered	mild	non-critical	39	6	cd8	242458	28239	['FLNGSCGSV', 'FPPTSFGPL', 'ILHCANFNV', 'KLSYGIATV', 'MPASWVMRI', 'QECVRGTTVL', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+34	recovered	mild	non-critical	39	6	cd8	193187	17578	['FLNGSCGSV', 'FLPRVFSAV', 'ILHCANFNV', 'QECVRGTTVL', 'YFPLQSYGF']	"""mixed"""	Schultheiss et al.
+35	recovered	mild	non-critical	47	7	cd8	159895	12664	['FLNGSCGSV', 'FLPRVFSAV', 'FVDGVPFVV', 'HLVDFQVTI', 'HTTDPSFLGRY', 'VLWAHGFEL']	"""mixed"""	Schultheiss et al.
+38	recovered	mild	non-critical	50	8	cd8	147177	11653	['VLWAHGFEL']	"""mixed"""	Schultheiss et al.
+6	active	moderate	non-critical	18	3	cd8	103662	13701	['HTTDPSFLGRY', 'ILHCANFNV', 'NLDSKVGGNY', 'TPINLVRDL', 'VLWAHGFEL', 'YLQPRTFLL']	"""mixed"""	Schultheiss et al.
+6	recovered	moderate	non-critical	23	4	cd8	117083	12221	['FLNGSCGSV', 'HTTDPSFLGRY', 'NLDSKVGGNY', 'YLQPRTFLL']	"""mixed"""	Schultheiss et al.
+7	active	moderate	non-critical	15	3	cd8	107529	11181	['HLVDFQVTI', 'ILHCANFNV', 'VLWAHGFEL']	"""mixed"""	Schultheiss et al.
+7	active	moderate	non-critical	20	3	cd8	147800	23904	['EILDITPCSF', 'FLNGSCGSV', 'HLVDFQVTI', 'ILHCANFNV', 'KTSVDCTMYI', 'MPASWVMRI', 'TPINLVRDL', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+7	active	moderate	non-critical	23	4	cd8	81485	9284	['FLNGSCGSV', 'HLVDFQVTI', 'ILHCANFNV', 'KAYNVTQAF', 'MPASWVMRI', 'SSNVANYQK', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+7	recovered	moderate	non-critical	27	4	cd8	68120	9493	['FLNGSCGSV', 'KTSVDCTMYI', 'NLDSKVGGNY']	"""mixed"""	Schultheiss et al.
+19	active	moderate	non-critical	9	2	cd8	153813	10295	['EILDITPCSF', 'HTTDPSFLGRY', 'ILHCANFNV', 'NLDSKVGGNY', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+20	active	moderate	non-critical	24	4	cd8	154706	9254	['NLDSKVGGNY', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+21	active	moderate	non-critical	20	3	cd8	161562	6520	['FLPRVFSAV', 'HLVDFQVTI', 'HTTDPSFLGRY', 'ILHCANFNV', 'MPASWVMRI']	"""mixed"""	Schultheiss et al.
+23	active	moderate	non-critical	23	4	cd8	113730	696	['']	"""mixed"""	Schultheiss et al.
+24	active	moderate	non-critical	20	3	cd8	225404	8016	['FLNGSCGSV', 'MPASWVMRI']	"""mixed"""	Schultheiss et al.
+39	active	moderate	non-critical	1	1	cd8	121953	6922	['FLNGSCGSV', 'FLPRVFSAV', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+imseq12	active	moderate	non-critical	9	2	cd4	182948	14769	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'KPLEFGATSAAL', 'YLQPRTFLL']	"""split"""	in-house
+imseq12	active	moderate	non-critical	9	2	cd8	223025	4815	['ALSKGVHFV', 'FLNGSCGSV', 'FLPRVFSAV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'MPASWVMRI', 'VLWAHGFEL', 'YLQPRTFLL']	"""split"""	in-house
+imseq12	active	moderate	non-critical	11	2	cd4	560616	16487	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'MPASWVMRI', 'NLDSKVGGNY']	"""split"""	in-house
+imseq12	active	moderate	non-critical	11	2	cd8	270648	6923	['ALSKGVHFV', 'FLNGSCGSV', 'FLPRVFSAV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'YLQPRTFLL']	"""split"""	in-house
+imseq13	active	moderate	non-critical	8	2	cd8	396973	10791	['FLNGSCGSV', 'FPPTSFGPL', 'YFPLQSYGF']	"""split"""	in-house
+imseq13	active	moderate	non-critical	11	2	cd8	269797	7334	['FPPTSFGPL', 'HTTDPSFLGRY', 'ILHCANFNV', 'YFPLQSYGF']	"""split"""	in-house
+imseq15	active	moderate	non-critical	14	2	cd4	421515	17322	['FLNGSCGSV', 'HTTDPSFLGRY', 'YLQPRTFLL']	"""split"""	in-house
+imseq15	active	moderate	non-critical	14	2	cd8	218920	5441	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'ILHCANFNV', 'KLSYGIATV', 'YLQPRTFLL']	"""split"""	in-house
+imseq15	active	moderate	non-critical	20	3	cd4	313305	14367	['HTTDPSFLGRY', 'ILHCANFNV']	"""split"""	in-house
+imseq15	active	moderate	non-critical	20	3	cd8	157961	4892	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'ILHCANFNV']	"""split"""	in-house
+imseq20	active	moderate	non-critical	16	3	cd4	321554	6398	['']	"""split"""	in-house
+imseq20	active	moderate	non-critical	16	3	cd8	215664	4181	['FLNGSCGSV', 'HLVDFQVTI']	"""split"""	in-house
+imseq20	active	moderate	non-critical	19	3	cd4	316147	17364	['EILDITPCSF', 'FLNGSCGSV', 'MPASWVMRI']	"""split"""	in-house
+imseq20	active	moderate	non-critical	19	3	cd8	307811	3654	['FLNGSCGSV']	"""split"""	in-house
+imseq22	active	moderate	non-critical	16	3	cd4	490683	16515	['FLNGSCGSV', 'HTTDPSFLGRY', 'ILHCANFNV', 'YLQPRTFLL']	"""split"""	in-house
+imseq22	active	moderate	non-critical	16	3	cd8	316833	7711	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'RQLLFVVEV', 'TPINLVRDL', 'VLWAHGFEL', 'YLDAYNMMI', 'YLQPRTFLL']	"""split"""	in-house
+imseq22	active	moderate	non-critical	23	4	cd4	407646	9024	['FLNGSCGSV', 'MPASWVMRI']	"""split"""	in-house
+imseq22	active	moderate	non-critical	23	4	cd8	397411	10620	['EILDITPCSF', 'FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'NLNESLIDL', 'RQLLFVVEV', 'TPINLVRDL', 'YLDAYNMMI', 'YLQPRTFLL']	"""split"""	in-house
+imseq27	active	moderate	non-critical	7	1	cd4	293974	7398	['FPPTSFGPL', 'YLQPRTFLL']	"""split"""	in-house
+imseq27	active	moderate	non-critical	7	1	cd8	283688	6394	['FADDLNQLTGY', 'FLNGSCGSV', 'FPPTSFGPL', 'HLVDFQVTI', 'HTTDPSFLGRY', 'KLPDDFTGCV', 'YLQPRTFLL']	"""split"""	in-house
+imseq27	active	moderate	non-critical	14	2	cd4	416178	19379	['FLNGSCGSV', 'FLPRVFSAV', 'HTTDPSFLGRY', 'KLSYGIATV', 'YLQPRTFLL']	"""split"""	in-house
+imseq27	active	moderate	non-critical	14	2	cd8	297148	5435	['FADDLNQLTGY', 'FLNGSCGSV', 'FPPTSFGPL', 'HLVDFQVTI', 'HTTDPSFLGRY', 'ILHCANFNV', 'YLQPRTFLL']	"""split"""	in-house
+imseq5	active	moderate	non-critical	9	2	cd4	245015	4527	['FLNGSCGSV', 'HTTDPSFLGRY', 'MPASWVMRI']	"""split"""	in-house
+imseq5	active	moderate	non-critical	9	2	cd8	421490	3309	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'ILHCANFNV', 'MPASWVMRI']	"""split"""	in-house
+imseq5	active	moderate	non-critical	11	2	cd4	67267	839	['HTTDPSFLGRY']	"""split"""	in-house
+imseq5	active	moderate	non-critical	11	2	cd8	276002	7452	['FLNGSCGSV', 'FLPRVFSAV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'ILHCANFNV', 'MPASWVMRI', 'NLDSKVGGNY', 'YLQPRTFLL']	"""split"""	in-house
+imseq28	active	severe	non-critical	6	1	cd4	395851	2535	['YLQPRTFLL']	"""split"""	in-house
+imseq28	active	severe	non-critical	6	1	cd8	185076	3001	['FPPTSFGPL', 'FVDGVPFVV']	"""split"""	in-house
+imseq28	active	severe	non-critical	13	2	cd4	267657	5694	['FLNGSCGSV', 'TPINLVRDL']	"""split"""	in-house
+imseq28	active	severe	non-critical	13	2	cd8	212354	3419	['FPPTSFGPL']	"""split"""	in-house
+5	active	critical	critical	20	3	cd8	100212	5468	['FVDGVPFVV', 'NLDSKVGGNY']	"""mixed"""	Schultheiss et al.
+5	active	critical	critical	26	4	cd8	126256	6186	['MPASWVMRI']	"""mixed"""	Schultheiss et al.
+5	active	critical	critical	28	4	cd8	72404	1680	['']	"""mixed"""	Schultheiss et al.
+5	active	critical	critical	32	5	cd8	78614	4078	['FLNGSCGSV', 'ILHCANFNV', 'KLSYGIATV', 'MPASWVMRI', 'NLDSKVGGNY', 'VLWAHGFEL']	"""mixed"""	Schultheiss et al.
+5	active	critical	critical	35	5	cd8	177821	1431	['KTSVDCTMYI']	"""mixed"""	Schultheiss et al.
+5	active	critical	critical	39	6	cd8	151747	6506	['HLVDFQVTI', 'ILHCANFNV', 'MPASWVMRI', 'NLDSKVGGNY', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+5	active	critical	critical	41	6	cd8	166547	8071	['NLDSKVGGNY', 'TPINLVRDL', 'YLQPRTFLL']	"""mixed"""	Schultheiss et al.
+5	active	critical	critical	46	7	cd8	196037	5509	['EILDITPCSF', 'FLPRVFSAV', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+10	active	critical	critical	25	4	cd8	130525	7712	['HLVDFQVTI', 'HTTDPSFLGRY']	"""mixed"""	Schultheiss et al.
+10	active	critical	critical	31	5	cd8	152510	2927	['HLVDFQVTI', 'HTTDPSFLGRY']	"""mixed"""	Schultheiss et al.
+10	active	critical	critical	33	5	cd8	90871	1869	['HTTDPSFLGRY']	"""mixed"""	Schultheiss et al.
+10	active	critical	critical	44	7	cd8	149006	2594	['FPPTSFGPL']	"""mixed"""	Schultheiss et al.
+10	active	critical	critical	46	7	cd8	120122	2746	['HTTDPSFLGRY']	"""mixed"""	Schultheiss et al.
+10	active	critical	critical	51	8	cd8	184874	3202	['FLNGSCGSV', 'FPPTSFGPL', 'HLVDFQVTI', 'NLDSKVGGNY']	"""mixed"""	Schultheiss et al.
+25	active	critical	critical	16	3	cd8	270023	8452	['FLNGSCGSV', 'FPPTSFGPL', 'HLVDFQVTI', 'HTTDPSFLGRY', 'ILHCANFNV', 'YLQPRTFLL']	"""mixed"""	Schultheiss et al.
+25	active	critical	critical	21	3	cd8	182226	5418	['FLPRVFSAV']	"""mixed"""	Schultheiss et al.
+40	active	critical	critical	13	2	cd8	127651	2077	['']	"""mixed"""	Schultheiss et al.
+41	active	critical	critical	11	2	cd8	106212	3490	['']	"""mixed"""	Schultheiss et al.
+44	active	critical	critical	15	3	cd8	79980	6878	['FLNGSCGSV', 'FVDGVPFVV', 'NLDSKVGGNY', 'TLDSKTQSL']	"""mixed"""	Schultheiss et al.
+imseq21	active	critical	critical	7	1	cd4	242713	7046	['FLNGSCGSV', 'KEIDRLNEV']	"""split"""	in-house
+imseq21	active	critical	critical	7	1	cd8	268224	5446	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'KLSYGIATV', 'MPASWVMRI', 'NLNESLIDL', 'YLQPRTFLL']	"""split"""	in-house
+imseq21	active	critical	critical	13	2	cd4	433177	11041	['FLNGSCGSV', 'KLPDDFTGCV']	"""split"""	in-house
+imseq21	active	critical	critical	13	2	cd8	335778	7132	['FPPTSFGPL', 'HTTDPSFLGRY', 'MPASWVMRI', 'YLQPRTFLL']	"""split"""	in-house
+imseq21	active	critical	critical	21	3	cd4	445044	18640	['FLPRVFSAV', 'HTTDPSFLGRY', 'MPASWVMRI', 'VLWAHGFEL', 'YLDAYNMMI']	"""split"""	in-house
+imseq21	active	critical	critical	21	3	cd8	325847	5973	['EILDITPCSF', 'FADDLNQLTGY', 'FLPRVFSAV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'KLSYGIATV', 'MPASWVMRI', 'YLQPRTFLL']	"""split"""	in-house
+imseq24	active	critical	critical	13	2	cd4	318946	14754	['FLNGSCGSV', 'ILHCANFNV', 'YLQPRTFLL']	"""split"""	in-house
+imseq24	active	critical	critical	13	2	cd8	146463	946	['HTTDPSFLGRY']	"""split"""	in-house
+imseq24	active	critical	critical	20	3	cd4	272180	19798	['ILHCANFNV', 'YLQPRTFLL']	"""split"""	in-house
+imseq24	active	critical	critical	26	4	cd4	389850	14473	['FLNGSCGSV', 'HLVDFQVTI', 'HTTDPSFLGRY', 'YLQPRTFLL']	"""split"""	in-house
+imseq24	active	critical	critical	26	4	cd8	208251	2960	['FLNGSCGSV']	"""split"""	in-house
+imseq25	active	critical	critical	5	1	cd4	193326	10779	['']	"""split"""	in-house
+imseq25	active	critical	critical	5	1	cd8	201760	3140	['FLNGSCGSV', 'FPPTSFGPL', 'HTTDPSFLGRY', 'ILHCANFNV', 'TPINLVRDL']	"""split"""	in-house
+imseq25	active	critical	critical	12	2	cd4	294805	12520	['MPASWVMRI']	"""split"""	in-house
+imseq25	active	critical	critical	12	2	cd8	181705	3895	['FPPTSFGPL', 'HTTDPSFLGRY', 'TPINLVRDL', 'YLQPRTFLL']	"""split"""	in-house
+1	active	fatal	critical	2	1	cd8	97424	1546	['FLNGSCGSV']	"""mixed"""	Schultheiss et al.
+1	active	fatal	critical	6	1	cd8	111024	1164	['']	"""mixed"""	Schultheiss et al.
+1	active	fatal	critical	8	2	cd8	84277	2047	['MPASWVMRI']	"""mixed"""	Schultheiss et al.
+1	active	fatal	critical	14	2	cd8	111009	1953	['MPASWVMRI']	"""mixed"""	Schultheiss et al.
+1	active	fatal	critical	23	4	cd8	187602	445	['']	"""mixed"""	Schultheiss et al.
+1	active	fatal	critical	27	4	cd8	195085	1174	['']	"""mixed"""	Schultheiss et al.
+2	active	fatal	critical	5	1	cd8	111155	10804	['HLVDFQVTI', 'KPLEFGATSAAL', 'MPASWVMRI', 'VLWAHGFEL', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+2	active	fatal	critical	9	2	cd8	126924	5478	['FLNGSCGSV']	"""mixed"""	Schultheiss et al.
+2	active	fatal	critical	11	2	cd8	114373	4487	['ILHCANFNV', 'VLWAHGFEL']	"""mixed"""	Schultheiss et al.
+3	active	fatal	critical	1	1	cd8	97810	4126	['FLNGSCGSV', 'HTTDPSFLGRY']	"""mixed"""	Schultheiss et al.
+3	active	fatal	critical	5	1	cd8	107500	7135	['FLPRVFSAV', 'VLWAHGFEL', 'YLNTLTLAV']	"""mixed"""	Schultheiss et al.
+8	active	fatal	critical	18	3	cd8	115790	8391	['FLNGSCGSV', 'FLPRVFSAV', 'FVDGVPFVV', 'ILHCANFNV', 'TPINLVRDL']	"""mixed"""	Schultheiss et al.
+8	active	fatal	critical	24	4	cd8	106126	14181	['FLNGSCGSV', 'KTSVDCTMYI', 'NLDSKVGGNY']	"""mixed"""	Schultheiss et al.
+9	active	fatal	critical	16	3	cd8	136896	4416	['ILHCANFNV', 'KLSYGIATV', 'KTSVDCTMYI']	"""mixed"""	Schultheiss et al.
+9	active	fatal	critical	22	4	cd8	161978	5219	['FLNGSCGSV', 'FLPRVFSAV']	"""mixed"""	Schultheiss et al.
