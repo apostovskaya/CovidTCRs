@@ -1,0 +1,9 @@
+Grade	Description	Another description	Disease severity
+1	Not hospitalized, no limitations on activities	ambulatory, no activity limitation	mild
+2	Not hospitalized, limitation on activities and/or requiring home oxygen	ambulatory, activity limitation	mild
+3	Hospitalized, not requiring supplemental oxygen – no longer requires ongoing medical care	hospitalized, no oxygen therapy	moderate
+4	Hospitalized, not requiring supplemental oxygen – requiring ongoing medical care	hospitalized, oxygen mask or nasal prongs	moderate
+5	Hospitalized, requiring supplemental oxygen	hospitalized, noninvasive mechanical ventilation (NIMV) or high-flow nasal cannula (HFNC)	severe
+6	Hospitalized, on non-invasive ventilation or high flow oxygen devices	hospitalized, intubation and invasive mechanical ventilation (IMV)	severe
+7	Hospitalized, on mechanical ventilation or ECMO	hospitalized, IMV + additional support such as pressors or extracardiac membranous oxygenation (ECMO)	critical
+8	Death	death	death
