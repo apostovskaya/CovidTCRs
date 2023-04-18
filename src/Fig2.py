@@ -46,7 +46,7 @@ else:
                        # tcr_per_virus_inter,
                        order=['cd8', 'cd4'], palette='Set1', dodge=True,
                        linewidth=1)
-    ax.set(xlabel='T-cell population', ylabel='N of predicted TCRs')
+    ax.set(xlabel='T-cell population', ylabel='No. predicted TCRs')
     plt.tight_layout()
     # annotate median
     # medians are 14 vs 4 for cd8 vs cd4
@@ -58,7 +58,7 @@ else:
         ax.text(xtick, medians[xtick] + vertical_offset, medians[xtick],
                 horizontalalignment='center', size='small', color='w',
                 weight='semibold')
-    # statistical annotation (M-U in stats section higher)
+    # statistical annotation (M-U in stats section higher up)
     x1, x2 = 0, 1
     y, h, col = tcr_per_virus_inter[parameter].max() + 4, 2, 'k'
     plt.plot([x1, x1, x2, x2], [y, y + h, y + h, y], lw=1.5, c=col)

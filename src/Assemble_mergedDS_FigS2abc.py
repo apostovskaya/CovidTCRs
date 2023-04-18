@@ -62,23 +62,23 @@ all_data['all_SARS-CoV-2_epitopes'] = all_data[
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # discussion about ways of rescaling
 # https://stackoverflow.com/questions/703924/correct-way-to-standardize-scale-normalize-multiple-variables-following-power-la
-df1['Frac_CoV_TCRs'] = (df1['Frac_CoV_TCRs'] - df1['Frac_CoV_TCRs'].min()) / \
-                       df1['Frac_CoV_TCRs'].max()
-df1['Frac_SARS-CoV-2_TCRs'] = (df1['Frac_SARS-CoV-2_TCRs'] - df1[
-    'Frac_SARS-CoV-2_TCRs'].min()) / \
-                              df1['Frac_SARS-CoV-2_TCRs'].max()
-df1['Frac_SARS-CoV-2_only_TCRs'] = (df1['Frac_SARS-CoV-2_only_TCRs'] - df1[
-    'Frac_SARS-CoV-2_only_TCRs'].min()) / \
-                                   df1['Frac_SARS-CoV-2_only_TCRs'].max()
+df1['Frac_CoV_TCRs'] = (df1['Frac_CoV_TCRs'] - df1['Frac_CoV_TCRs'].min())\
+                       / df1['Frac_CoV_TCRs'].max()
+df1['Frac_SARS-CoV-2_TCRs'] = (df1['Frac_SARS-CoV-2_TCRs']
+                               - df1['Frac_SARS-CoV-2_TCRs'].min())\
+                              / df1['Frac_SARS-CoV-2_TCRs'].max()
+df1['Frac_SARS-CoV-2_only_TCRs'] = (df1['Frac_SARS-CoV-2_only_TCRs']
+                                    - df1['Frac_SARS-CoV-2_only_TCRs'].min())\
+                                   / df1['Frac_SARS-CoV-2_only_TCRs'].max()
 
-df2['Frac_CoV_TCRs'] = (df2['Frac_CoV_TCRs'] - df2['Frac_CoV_TCRs'].min()) / \
-                       df2['Frac_CoV_TCRs'].max()
-df2['Frac_SARS-CoV-2_TCRs'] = (df2['Frac_SARS-CoV-2_TCRs'] - df2[
-    'Frac_SARS-CoV-2_TCRs'].min()) / \
-                              df2['Frac_SARS-CoV-2_TCRs'].max()
-df2['Frac_SARS-CoV-2_only_TCRs'] = (df2['Frac_SARS-CoV-2_only_TCRs'] - df2[
-    'Frac_SARS-CoV-2_only_TCRs'].min()) / \
-                                   df2['Frac_SARS-CoV-2_only_TCRs'].max()
+df2['Frac_CoV_TCRs'] = (df2['Frac_CoV_TCRs'] - df2['Frac_CoV_TCRs'].min())\
+                       / df2['Frac_CoV_TCRs'].max()
+df2['Frac_SARS-CoV-2_TCRs'] = (df2['Frac_SARS-CoV-2_TCRs']
+                               - df2['Frac_SARS-CoV-2_TCRs'].min())\
+                              / df2['Frac_SARS-CoV-2_TCRs'].max()
+df2['Frac_SARS-CoV-2_only_TCRs'] = (df2['Frac_SARS-CoV-2_only_TCRs']
+                                    - df2['Frac_SARS-CoV-2_only_TCRs'].min())\
+                                   / df2['Frac_SARS-CoV-2_only_TCRs'].max()
 all_data_scaled = df1.append(df2)
 
 # we are not interested in asymptomatic patients (-1 row from 'mixed' DS)
@@ -91,21 +91,22 @@ all_data_scaled['%unique_TCRs'] = (all_data_scaled['unique_TCRs'] /
                                    all_data_scaled['total_count']) * 100
 
 # calculating Epitope proportion out of uniqueTCRs
-all_data_scaled['%CoV-common_Eps'] = 100 * all_data_scaled['N_CoV_Eps'] / \
-                                     all_data_scaled['unique_TCRs']
+all_data_scaled['%CoV-common_Eps'] = 100 * all_data_scaled['N_CoV_Eps']\
+                                     / all_data_scaled['unique_TCRs']
 all_data_scaled['%SC2-unique_Eps'] = 100 * all_data_scaled[
     'N_SARS-CoV-2_only_Eps'] / all_data_scaled['unique_TCRs']
 
 # rescaling of N of epitopes to median repertoire size
 median_TCRs = all_data_scaled['unique_TCRs'].median()  # 6394
-all_data_scaled['scaled_N_CoV-common_Eps'] = all_data_scaled[
-                                                 'N_CoV_Eps'] * median_TCRs / \
-                                             all_data_scaled['unique_TCRs']
+all_data_scaled['scaled_N_CoV-common_Eps'] = all_data_scaled['N_CoV_Eps']\
+                                             * median_TCRs\
+                                             / all_data_scaled['unique_TCRs']
 all_data_scaled['scaled_N_SC2-unique_Eps'] = all_data_scaled[
-                                                 'N_SARS-CoV-2_only_Eps'] * median_TCRs \
+                                                 'N_SARS-CoV-2_only_Eps'] \
+                                             * median_TCRs \
                                              / all_data_scaled['unique_TCRs']
 
-#
+# calculating proportion of different specific TCRs out of uniqueTCRs
 all_data_scaled['%CoV-common_TCRs'] = 100 * all_data_scaled['N_CoV_TCRs'] / \
                                       all_data_scaled['unique_TCRs']
 all_data_scaled['%SC2-unique_TCRs'] = 100 * all_data_scaled[
@@ -134,7 +135,7 @@ all_data_scaled = all_data_scaled[['patient_id', 'disease_status',
 all_data_scaled.reset_index(drop=True, inplace=True)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS1-c number of days sampled per patient
+# FigS2-c number of days sampled per patient
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 mpl.rcParams['font.family'] = 'Arial'
 fig = plt.figure(figsize=(6.6, 5))
@@ -142,7 +143,7 @@ ax = sns.histplot(all_data_scaled.groupby('patient_id')['day'].nunique(),
                   stat="count", discrete=True, color='tab:green')
 ax.set(xlabel='No. of data points per patient', ylabel='No. of patients')
 plt.tight_layout()
-plt.savefig(f'{folder_out}/FigS1c_N_dataPoints_perPerson.jpg', dpi=600)
+plt.savefig(f'{folder_out}/FigS2c_N_dataPoints_perPerson.jpg', dpi=600)
 plt.close()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -251,7 +252,7 @@ all_data_scaled_week_max.to_csv(
     f'{folder}/SplitMixed_mergedCD8_scaled_weekMax.tsv', sep='\t', index=False)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS1-a hist of merged data distribution per disease severity as is
+# FigS2-a hist of merged data distribution per disease severity as is
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 mpl.rcParams['font.family'] = 'Arial'
 fig = plt.figure(figsize=(6.6, 5))
@@ -264,11 +265,11 @@ sns.countplot(x='week', hue='disease_severity', data=all_data_scaled_week_max,
 plt.legend(loc='upper right', title='Disease severity')
 plt.xlabel('week')
 plt.ylabel('No. of patients')
-plt.savefig(f'{folder_out}/FigS1a_severity_distribution.jpg', dpi=600)
+plt.savefig(f'{folder_out}/FigS2a_severity_distribution.jpg', dpi=600)
 plt.close()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS1-b hist of merged data distribution per patient group - critical/non-critical
+# FigS2-b hist of merged data distribution per patient group - critical/non-critical
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 mpl.rcParams['font.family'] = 'Arial'
 fig = plt.figure(figsize=(6.6, 5))
@@ -279,5 +280,5 @@ plt.legend(loc='upper right', title='Patient group',
            labels=['Non-critical', 'Critical'])
 plt.xlabel('week')
 plt.ylabel('No. of patients')
-plt.savefig(f'{folder_out}/FigS1b_criticals_distribution.jpg', dpi=600)
+plt.savefig(f'{folder_out}/FigS2b_criticals_distribution.jpg', dpi=600)
 plt.close()

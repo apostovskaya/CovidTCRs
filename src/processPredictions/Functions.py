@@ -422,6 +422,97 @@ def tcr_counter_mixed_ds(all_data, one_id):
     return tmp
 
 
+def tcr_counter_sc_ds(all_data, one_id):
+    # tmp - data of one patient
+    tmp = all_data[all_data['patient_id'] == one_id].copy()
+    if tmp.empty:
+        print("\n" + f"{one_id} has no TCRs with predicted specificity" + "\n")
+        tmp.drop(
+            columns=['cloneCount', 'cloneFreq', 'score', 'bpr',
+                     'TRBV_gene', 'CDR3_beta', 'TRBJ_gene', 'epitope',
+                     'pathology', 'species'], inplace=True)
+        tmp.drop_duplicates(inplace=True)
+        return tmp
+
+    # drop unnecessary columns
+    tmp.drop(columns=['score', 'bpr'], inplace=True)
+
+    # substitute 0 with nan in counts and freqs and then nan with min values
+    tmp['cloneCount'] = tmp['cloneCount'].replace(to_replace=0.0, value=np.nan)
+    tmp['cloneFreq'] = tmp['cloneFreq'].replace(to_replace=0.0, value=np.nan)
+    min_cnt = tmp['cloneCount'].min()
+    min_freq = tmp['cloneFreq'].min()
+    values = {'cloneCount': min_cnt, 'cloneFreq': min_freq}
+    tmp.fillna(value=values, inplace=True)
+
+    #
+    # Epitopes
+    #
+    # number of different epitope groups: SC2-unique / CoV-common
+    tmp['N_SARS-CoV-2_Eps'] = len(
+        tmp.loc[tmp['pathology'] == 'SARS-CoV-2', 'epitope'].unique())
+    tmp['N_SARS-CoV-2_only_Eps'] = len(
+        tmp.loc[(tmp['pathology'] == 'SARS-CoV-2') & (tmp['species'] == 1),
+                'epitope'].unique())
+    tmp['N_CoV_Eps'] = len(tmp.loc[(tmp['pathology'] == 'SARS-CoV-2') & (
+                tmp['species'] > 1), 'epitope'].unique())
+
+    # all recognized epitopes
+    covid_ep_list = tmp.loc[
+        tmp['pathology'] == 'SARS-CoV-2', 'epitope'].unique().tolist()
+    covid_ep_list.sort()
+
+    # TCRs
+    #
+    # Covid-specific TCRs
+    #
+    tmp['N_SARS-CoV-2_TCRs'] = tmp[tmp['pathology'] ==
+                                   'SARS-CoV-2'].drop_duplicates(
+        subset=['TRBV_gene', 'CDR3_beta',
+                'TRBJ_gene'])['CDR3_beta'].count()
+    tmp['Frac_SARS-CoV-2_TCRs'] = tmp[tmp['pathology'] ==
+                                      'SARS-CoV-2'].drop_duplicates(
+        subset=['TRBV_gene', 'CDR3_beta',
+                'TRBJ_gene'])['cloneFreq'].sum()
+    #
+    # Covid-specific ONLY TCRs (NOT recognizing other coronaviruses)
+    #
+    tmp['N_SARS-CoV-2_only_TCRs'] = tmp[(tmp['pathology'] == 'SARS-CoV-2') &
+                                        (tmp['species'] == 1)].drop_duplicates(
+        subset=['TRBV_gene', 'CDR3_beta',
+                'TRBJ_gene'])[
+        'CDR3_beta'].count()
+    # fraction out of the entire repertoire
+    tmp['Frac_SARS-CoV-2_only_TCRs'] = \
+        tmp[(tmp['pathology'] == 'SARS-CoV-2')
+            & (tmp['species'] == 1)].drop_duplicates(
+            subset=['TRBV_gene', 'CDR3_beta', 'TRBJ_gene'])['cloneFreq'].sum()
+    #
+    # CoV-common TCRs
+    #
+    tmp['N_CoV_TCRs'] = tmp[(tmp['pathology'] == 'SARS-CoV-2') &
+                            (tmp['species'] > 1)].drop_duplicates(
+        subset=['TRBV_gene', 'CDR3_beta',
+                'TRBJ_gene'])['CDR3_beta'].count()
+    # fraction out of the entire repertoire
+    tmp['Frac_CoV_TCRs'] = tmp[(tmp['pathology'] == 'SARS-CoV-2') &
+                               (tmp['species'] > 1)].drop_duplicates(
+        subset=['TRBV_gene', 'CDR3_beta',
+                'TRBJ_gene'])['cloneFreq'].sum()
+
+    # delete columns
+    tmp.drop(columns=['cloneCount', 'cloneFreq',
+                      'TRBV_gene', 'CDR3_beta', 'TRBJ_gene',
+                      'epitope', 'pathology', 'species'],
+             inplace=True)
+    tmp.drop_duplicates(inplace=True)
+
+    # add columns listing viruses and epitopes recognized
+    tmp['all_SARS-CoV-2_epitopes'] = [covid_ep_list]
+
+    return tmp
+
+
 # # PLOTS: Dynamics per patient and Trends per group
 #
 #

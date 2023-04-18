@@ -23,7 +23,7 @@ all_data_scaled_week_max = pd.read_csv(
 # ep_data = pd.read_csv(f'{folder}/epitope_data.txt', sep='\t')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS6 - longitudinal dynamics per person week Max
+# FigS7 - longitudinal dynamics per person week Max
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 for parameter in ['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs']:
     mpl.rcParams['font.family'] = 'Arial'
@@ -47,7 +47,7 @@ for parameter in ['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs']:
     # plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=6)
     plt.tight_layout()
     plt.savefig(
-        f'{folder_out}/Supplementary/FigS6_PersonDyn_{parameter}_weekMax.jpg',
+        f'{folder_out}/Supplementary/FigS7_PersonDyn_{parameter}_weekMax.jpg',
         dpi=600)
     plt.close()
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +83,7 @@ noncrit = all_data_scaled_week_max[
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS2 - dynamics of TCR repertoire and response parameters in individuals
+# FigS3 - dynamics of TCR repertoire and response parameters in individuals
 # between weeks 1 and 2, critical and non-critical groups separately
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -156,11 +156,11 @@ def plot_week12_dynamics(data, varbls, path):
             plt.tight_layout()
             plt.title(severity_)
             plt.savefig(
-                f'{path}/FigS2_{parameter_[2]}_w1-2_{severity_.split(" ")[0]}_CoV_vs_SC2.jpg',
+                f'{path}/FigS3_{parameter_[2]}_w1-2_{severity_.split(" ")[0]}_CoV_vs_SC2.jpg',
                 bbox_inches='tight', dpi=600)
             plt.close()
             print(
-                f'FigS2_{parameter_[2]}_w1-2_{severity_}_CoV_vs_SC2.png is saved in {path}')
+                f'FigS3_{parameter_[2]}_w1-2_{severity_}_CoV_vs_SC2.png is saved in {path}')
 
 
 l = [[['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs', 'TCR Fractions']],
@@ -275,7 +275,7 @@ def plot_ep_redundancy_spearman(data, weeks):
         figure = 'Fig5'
     else:
         period = f'w{weeks[0]}-{weeks[1]}'
-        figure = 'Supplementary/FigS4'
+        figure = 'Supplementary/FigS5'
 
     print(f'\nN recognized epitopes vs N of specific TCRs, {period}')
     for parameter in [['N_CoV_TCRs', 'N_CoV_Eps', 'CoV-common'],
@@ -377,7 +377,7 @@ def plot_ep_redundancy_spearman(data, weeks):
 # Figure 5a,b (week 2 for active patients vs recovered)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 plot_ep_redundancy_spearman(all_data_scaled_week_max, '22')
-# FigS4
+# FigS5
 plot_ep_redundancy_spearman(all_data_scaled_week_max, '12')
 plot_ep_redundancy_spearman(all_data_scaled_week_max, '38')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -511,7 +511,7 @@ log_f.close()
 print(f'Log file Fig5abc.log is created in the {folder_logs} directory.')
 print(f'Figures 5 a-c are saved in the {folder_out} directory.')
 print(
-    f'Figures S4 a-d, S6 a-b are saved in the {folder_out}/Supplementary directory.')
+    f'Figures S5 a-d, S7 a-b are saved in the {folder_out}/Supplementary directory.')
 
 # 24 'orf1ab polyprotein' vs 23 others; 4 out of 9 are ORF1ab
 # print(len(ep_data.loc[ep_data['protein'] == 'ORF1ab', 'epitope'].to_list()))
@@ -545,3 +545,15 @@ print(
 # for i in all_data_scaled_week_max['all_SARS-CoV-2_epitopes']:
 #     all_predicted_eps = all_predicted_eps.union(i)
 #     print(len(all_predicted_eps))
+
+# to plot 5a,b,c
+# import matplotlib.gridspec as gridspec
+# mpl.rcParams['font.family'] = 'Arial'
+# # fig = plt.figure(figsize=(6.6, 5))
+# gs = gridspec.GridSpec(2, 4)
+# gs.update(wspace=0.5)
+# ax1 = plt.subplot(gs[0, :2], )
+# ax2 = plt.subplot(gs[0, 2:])
+# ax3 = plt.subplot(gs[1, 1:3])
+# plt.tight_layout()
+# plt.show()

@@ -96,11 +96,6 @@ for sample in id_list:
     tcrex_seq = pd.merge(tcrex, seq, how="left",
                          on=['TRBV_gene', 'CDR3_beta', 'TRBJ_gene'])
     tcrex_seq.drop_duplicates(inplace=True)
-    # merge counts of the same CDR3s which differ in 1 nt
-
-    # a = tcrex_seq[tcrex_seq[['TRBV_gene', 'CDR3_beta', 'TRBJ_gene', 'epitope']].duplicated(keep='last')]
-    # a = a.append(tcrex_seq[tcrex_seq[['TRBV_gene', 'CDR3_beta', 'TRBJ_gene', 'epitope']].duplicated()])
-    # a.sort_index(inplace=True)
 
     # number of different nt sequences per CDR3 with the same V-J genes, epitope, etc.
     nt_seq = tcrex_seq.groupby(

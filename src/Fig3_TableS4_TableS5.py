@@ -1,6 +1,7 @@
 import sys
 import os
 import pandas as pd
+import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
@@ -58,51 +59,104 @@ for severity in ['Yes', 'No']:
     print(f'Effect size is {effect}')
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # Figure 3: plot critical and not separately side-by-side
+    # OLD Figure 3: plot critical and not separately side-by-side
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    data_long = all_data_scaled_week_max.melt(id_vars=['patient_id', 'week',
-                                                       'critical_disease'],
-                                              value_vars=['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs'],
-                                              var_name='Specificity', value_name='Fraction')
-    for parameter in [['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs', 'TCRs']]:
-        data_plot = data_long[(data_long['week'] == 1) & (data_long['critical_disease'] == severity)].copy()
-        data_plot.loc[data_plot['Specificity'] == 'Frac_CoV_TCRs', 'Specificity'] = 'CoV-common'
-        data_plot.loc[data_plot['Specificity'] == 'Frac_SARS-CoV-2_only_TCRs', 'Specificity'] = 'SC2-unique'
-        mpl.rcParams['font.family'] = 'Arial'
-        fig = plt.figure(figsize=(6.6, 5))
-        ax = sns.boxplot(x="Specificity", y='Fraction', data=data_plot,
-                         palette={'CoV-common': 'tab:purple', 'SC2-unique': 'tab:green'}, showmeans=True,
-                         meanprops={'marker': '*', 'markerfacecolor': 'white', 'markeredgecolor': 'black'})
-        ax = sns.stripplot(x="Specificity", y='Fraction', data=data_plot,
-                           palette={'CoV-common': 'tab:purple', 'SC2-unique': 'tab:green'}, dodge=True, linewidth=1)
-        ax.set(xlabel='Recognized epitopes', ylabel=f'TCR fractions at week1')
-        ax.set_ylim(top=0.9)
-        plt.tight_layout()
-        # statistical annotation (M-U in stats section)
-        if p_adj < alpha:
-            x1, x2 = 0, 1
-            y, h, col = data_plot[data_plot['week'] == 1]['Fraction'].max() + 0.05, 0.1, 'k'
-            plt.plot([x1, x1, x2, x2], [y, y + h, y + h, y], lw=1.5, c=col)
-            plt.text((x1 + x2) * .5, (y + h) * 1.008, f"p < {alpha}", ha='center', va='bottom', color=col)
-            ax.tick_params(labelsize=10)
-            ax.yaxis.set_major_locator(MultipleLocator(0.2))
-            ax.yaxis.set_minor_locator(MultipleLocator(0.1))
-            plt.title(f'Critical COVID-19')
-            plt.savefig(f'{folder_out}/Fig3b_box{parameter[2]}_w1_{severity}_CoV_vs_SC2.jpg',
-                        bbox_inches='tight', dpi=600)
-            plt.close()
-        else:
-            x1, x2 = 0, 1
-            y, h, col = data_plot[data_plot['week'] == 1]['Fraction'].max() + 0.05, 0.05, 'k'
-            plt.plot([x1, x1, x2, x2], [y, y + h, y + h, y], lw=1.5, c=col)
-            plt.text((x1 + x2) * .5, (y + h) * 1.008, "ns", ha='center', va='bottom', color=col)
-            ax.tick_params(labelsize=10)
-            ax.yaxis.set_major_locator(MultipleLocator(0.2))
-            ax.yaxis.set_minor_locator(MultipleLocator(0.1))
-            plt.title(f'Non-ritical COVID-19')
-            plt.savefig(f'{folder_out}/Fig3a_box{parameter[2]}_w1_{severity}_CoV_vs_SC2.jpg',
-                        bbox_inches='tight', dpi=600)
-            plt.close()
+    # data_long = all_data_scaled_week_max.melt(id_vars=['patient_id', 'week',
+    #                                                    'critical_disease'],
+    #                                           value_vars=['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs'],
+    #                                           var_name='Specificity', value_name='Fraction')
+    # for parameter in [['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs', 'TCRs']]:
+    #     data_plot = data_long[(data_long['week'] == 1) & (data_long['critical_disease'] == severity)].copy()
+    #     data_plot.loc[data_plot['Specificity'] == 'Frac_CoV_TCRs', 'Specificity'] = 'CoV-common'
+    #     data_plot.loc[data_plot['Specificity'] == 'Frac_SARS-CoV-2_only_TCRs', 'Specificity'] = 'SC2-unique'
+    #     mpl.rcParams['font.family'] = 'Arial'
+    #     fig = plt.figure(figsize=(6.6, 5))
+    #     ax = sns.boxplot(x="Specificity", y='Fraction', data=data_plot,
+    #                      palette={'CoV-common': 'tab:purple', 'SC2-unique': 'tab:green'}, showmeans=True,
+    #                      meanprops={'marker': '*', 'markerfacecolor': 'white', 'markeredgecolor': 'black'})
+    #     ax = sns.stripplot(x="Specificity", y='Fraction', data=data_plot,
+    #                        palette={'CoV-common': 'tab:purple', 'SC2-unique': 'tab:green'}, dodge=True, linewidth=1)
+    #     ax.set(xlabel='Recognized epitopes', ylabel=f'TCR fractions at week1')
+    #     ax.set_ylim(top=0.9)
+    #     plt.tight_layout()
+    #     # statistical annotation (M-U in stats section)
+    #     if p_adj < alpha:
+    #         x1, x2 = 0, 1
+    #         y, h, col = data_plot[data_plot['week'] == 1]['Fraction'].max() + 0.05, 0.1, 'k'
+    #         plt.plot([x1, x1, x2, x2], [y, y + h, y + h, y], lw=1.5, c=col)
+    #         plt.text((x1 + x2) * .5, (y + h) * 1.008, f"p < {alpha}", ha='center', va='bottom', color=col)
+    #         ax.tick_params(labelsize=10)
+    #         ax.yaxis.set_major_locator(MultipleLocator(0.2))
+    #         ax.yaxis.set_minor_locator(MultipleLocator(0.1))
+    #         plt.title(f'Critical COVID-19')
+    #         plt.savefig(f'{folder_out}/Fig3b_box{parameter[2]}_w1_{severity}_CoV_vs_SC2.jpg',
+    #                     bbox_inches='tight', dpi=600)
+    #         plt.close()
+    #     else:
+    #         x1, x2 = 0, 1
+    #         y, h, col = data_plot[data_plot['week'] == 1]['Fraction'].max() + 0.05, 0.05, 'k'
+    #         plt.plot([x1, x1, x2, x2], [y, y + h, y + h, y], lw=1.5, c=col)
+    #         plt.text((x1 + x2) * .5, (y + h) * 1.008, "ns", ha='center', va='bottom', color=col)
+    #         ax.tick_params(labelsize=10)
+    #         ax.yaxis.set_major_locator(MultipleLocator(0.2))
+    #         ax.yaxis.set_minor_locator(MultipleLocator(0.1))
+    #         plt.title(f'Non-ritical COVID-19')
+    #         plt.savefig(f'{folder_out}/Fig3a_box{parameter[2]}_w1_{severity}_CoV_vs_SC2.jpg',
+    #                     bbox_inches='tight', dpi=600)
+    #         plt.close()
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Figure 3 (instead of 3a and 3b)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+data_plot = all_data_scaled_week_max[all_data_scaled_week_max['week'] == 1].copy()
+long_df = data_plot.melt(
+    id_vars=['patient_id', 'week', 'critical_disease'],
+    value_vars=['Frac_CoV_TCRs', 'Frac_SARS-CoV-2_only_TCRs'],
+    var_name='Specificity', value_name='TCR fraction at week1')
+# rename & reorder for the plot
+long_df.rename(columns={'critical_disease': 'COVID-19 severity'}, inplace=True)
+long_df.loc[long_df['COVID-19 severity'] == 'No', 'COVID-19 severity'] = 'Non-critical'
+long_df.loc[long_df['COVID-19 severity'] == 'Yes', 'COVID-19 severity'] = 'Critical'
+long_df.loc[long_df['Specificity'] == 'Frac_CoV_TCRs', 'Specificity'] = 'CoV-common TCRs'
+long_df.loc[long_df['Specificity'] == 'Frac_SARS-CoV-2_only_TCRs', 'Specificity'] = 'SC2-unique TCRs'
+long_df.sort_values(by=['COVID-19 severity', 'Specificity'], inplace=True, ascending=False)
+
+# plotting params
+hue_order = ['CoV-common TCRs', 'SC2-unique TCRs']
+palette = {'CoV-common TCRs': 'tab:purple', 'SC2-unique TCRs': 'tab:green'}
+
+np.random.seed(137645)
+mpl.rcParams['font.family'] = 'Arial'
+fig = plt.figure(figsize=(9.9, 6))
+ax = sns.stripplot(data=long_df, x='COVID-19 severity', y='TCR fraction at week1',
+                   hue='Specificity', hue_order=hue_order, palette=palette,
+                   linewidth=1, dodge=True, jitter=True)
+ax = sns.boxplot(data=long_df, x='COVID-19 severity', y='TCR fraction at week1',
+                 hue='Specificity', hue_order=hue_order, palette=palette,
+                 flierprops={"marker": ""}, showmeans=True,
+                 meanprops={'marker': '*', 'markerfacecolor': 'white',
+                            'markeredgecolor': 'black'})
+handles, labels = ax.get_legend_handles_labels()
+plt.legend(handles[0:2], labels[0:2], frameon=False)
+ax.set_xlabel('\nCOVID-19 severity')
+ax.tick_params(labelsize=10)
+ax.yaxis.set_major_locator(MultipleLocator(0.2))
+ax.yaxis.set_minor_locator(MultipleLocator(0.1))
+# stat annotation
+x1, x2 = 0 - 0.2, 0 + 0.2
+x3, x4 = 1 - 0.2, 1 + 0.2
+y, h, col = long_df['TCR fraction at week1'].max()/2 + 0.05, 0.03, 'k'
+y2 = y * 1.05
+plt.plot([x1, x1, x2, x2], [y, y + h, y + h, y], lw=1.5, c=col)
+plt.text((x1 + x2) * .5, (y + h) * 1.008, 'ns', ha='center',
+         va='bottom', color=col)
+plt.plot([x3, x3, x4, x4], [y2, y2 + h, y2 + h, y2], lw=1.5, c=col)
+plt.text((x3 + x4) * .5, (y2 + h) * 1.008, f"p < {alpha}", ha='center',
+         va='bottom', color=col)
+# plt.show()
+plt.savefig(f'{folder_out}/Fig3_TCRfrac_w1_CoV_vs_SC2_perGroup.jpg', dpi=600,
+            bbox_inches='tight')
+plt.close()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # for supplementary table of all active weeks (Table S4)

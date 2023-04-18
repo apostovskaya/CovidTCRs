@@ -69,7 +69,7 @@ data_long.loc[data_long['Specificity'] == 'Frac_CoV_TCRs',
               'Specificity'] = 'CoV-common_TCRs'
 data_long.loc[data_long['Specificity'] == 'Frac_SARS-CoV-2_only_TCRs',
               'Specificity'] = 'SC2-unique_TCRs'
-
+# plot
 mpl.rcParams['font.family'] = 'Arial'
 fig = plt.figure(figsize=(6.6, 5))
 # x_estimator=np.mean to g to have lines instead of individual dots
@@ -81,6 +81,7 @@ g = sns.lmplot(x='week', y='Fraction', data=data_long, col='critical_disease',
 (g.set_axis_labels("week", "TCR fraction")
  .tight_layout(w_pad=2))
 fig = g.fig
+# fig.subplots_adjust(wspace=0.1)
 a0 = fig.axes[0]
 a0.set_title("Non-critical COVID-19")
 a1 = fig.axes[1]
@@ -88,16 +89,21 @@ a1.set_title("Critical COVID-19")
 legend1 = plt.legend(loc='upper right', title='Specificity', markerscale=2)
 legend2 = plt.legend(handles=[crit_label, noncrit_label],
                      loc='lower right', handlelength=0.25)
+# annotate panels
+a0.text(-0.17, 1.02, 'A', transform=a0.transAxes, size=12)
+a1.text(1.05, 1.02, 'B', transform=a1.transAxes, size=12)
 plt.gca().add_artist(legend1)
+plt.tight_layout()
+# plt.show()
 plt.savefig(f'{folder_out}/Fig7ab_RegressDots_Fractions_crit_not_week.jpg',
             dpi=600)
 plt.close()
 print(f'Figure 7 (a, b) is saved in the {folder_out} directory')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS7: trend lines of depth and breadth of SC2-unique and CoV-common TCRreps
+# FigS8: trend lines of depth and breadth of SC2-unique and CoV-common TCRreps
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS7-a,b: trend lines for fractions (depth) of SC2-unique & CoV-common TCRs
+# FigS8-a,b: trend lines for fractions (depth) of SC2-unique & CoV-common TCRs
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 mpl.rcParams['font.family'] = 'Arial'
 fig = plt.figure(figsize=(6.6, 5))
@@ -118,11 +124,11 @@ a0.set_title("Non-critical COVID-19")
 a1 = fig.axes[1]
 a1.set_title("Critical COVID-19")
 plt.savefig(
-    f'{folder_out}/Supplementary/FigS7ab_TrendBand_RepDepth_crit_not_week.jpg',
+    f'{folder_out}/Supplementary/FigS8ab_TrendBand_RepDepth_crit_not_week.jpg',
     dpi=600)
 plt.close()
 
-# FigS7-c, d: trend lines for % (breadth) of SC2-unique and CoV-common TCRs
+# FigS8-c, d: trend lines for % (breadth) of SC2-unique and CoV-common TCRs
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 data_long2 = all_data_scaled_week_max.melt(
     id_vars=['patient_id', 'week', 'critical_disease'],
@@ -156,12 +162,12 @@ a1.set_title("Critical COVID-19")
 leg = g._legend
 leg.set_bbox_to_anchor([0.8, 0.8])
 plt.savefig(f'{folder_out}/Supplementary'
-            f'/FigS7cd_TrendBand_RepBreadth_crit_not_week.jpg', dpi=600)
+            f'/FigS8cd_TrendBand_RepBreadth_crit_not_week.jpg', dpi=600)
 plt.close()
-print(f'Figure S7 (a-d) is saved in the {folder_out}/Supplementary directory')
+print(f'Figure S8 (a-d) is saved in the {folder_out}/Supplementary directory')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# FigS5-a,b: personal dynamics CoV vs SC2 for each patient on their own plot
+# FigS6-a,b: personal dynamics CoV vs SC2 for each patient on their own plot
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # separating a dataset with only patients who have multiple data points
 long_data_only_weekMax = all_data_scaled_week_max[
@@ -210,13 +216,14 @@ long_data_only_weekMax_long_logFC.loc[long_data_only_weekMax_long_logFC[
                                           'Specificity'] == 'log2_weekFC_Frac_CoV_TCRs_+1',
                                       'Specificity'] = 'CoV-common'
 long_data_only_weekMax_long_logFC.loc[
-        long_data_only_weekMax_long_logFC['critical_disease'] == 'Yes',
-        'critical_disease'] = 'Critical'
+    long_data_only_weekMax_long_logFC['critical_disease'] == 'Yes',
+    'critical_disease'] = 'Critical'
 long_data_only_weekMax_long_logFC.loc[
-        long_data_only_weekMax_long_logFC['critical_disease'] == 'No',
-        'critical_disease'] = 'Non-critical'
+    long_data_only_weekMax_long_logFC['critical_disease'] == 'No',
+    'critical_disease'] = 'Non-critical'
 # plotting
-for severity in long_data_only_weekMax_long_logFC['critical_disease'].unique().tolist():
+for severity in long_data_only_weekMax_long_logFC[
+    'critical_disease'].unique().tolist():
     data_plot = long_data_only_weekMax_long_logFC[
         long_data_only_weekMax_long_logFC['critical_disease'] == severity]
     for parameter in [['CoV-common', 'SC2-unique', 'TCR_log2FC']]:
@@ -233,7 +240,7 @@ for severity in long_data_only_weekMax_long_logFC['critical_disease'].unique().t
         ax.fig.suptitle(f"{severity} COVID-19")
         plt.subplots_adjust(top=0.925)
         plt.savefig(
-            f'{folder_out}/Supplementary/FigS5_{parameter[2]}+1_CoV_vs_SC2_individs_{severity}.jpg',
+            f'{folder_out}/Supplementary/FigS6_{parameter[2]}+1_CoV_vs_SC2_individs_{severity}.jpg',
             bbox_inches='tight', dpi=600)
         plt.close()
-print(f'Figure S5 (a-b) is saved in the {folder_out}/Supplementary directory')
+print(f'Figure S6 (a-b) is saved in the {folder_out}/Supplementary directory')
